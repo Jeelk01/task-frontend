@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/*
+  Palette:
+  --cream:   #F5F5F0  (bg, surfaces)
+  --sand:    #E6D8C3  (borders, muted bg)
+  --tan:     #C2A68C  (muted text, secondary accents)
+  --sage:    #5D866C  (primary CTA, accent, active states)
+*/
+
+@layer base {
+  :root {
+    /* Base */
+    --background:   42 27% 96%;      /* #F5F5F0 */
+    --foreground:   30 15% 22%;      /* warm dark brown for text */
+
+    /* Cards & Popovers */
+    --card:         42 27% 98%;      /* near-white cream */
+    --card-foreground: 30 15% 22%;
+
+    --popover:      42 27% 98%;
+    --popover-foreground: 30 15% 22%;
+
+    /* Primary = sage green #5D866C */
+    --primary:      148 19% 44%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary = sand #E6D8C3 */
+    --secondary:    35 36% 83%;
+    --secondary-foreground: 30 15% 22%;
+
+    /* Muted = light sand */
+    --muted:        36 30% 90%;
+    --muted-foreground: 30 20% 50%;  /* tan-ish */
+
+    /* Accent = sage */
+    --accent:       148 19% 44%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive:  4 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border:       35 30% 80%;      /* #E6D8C3 ish */
+    --input:        35 30% 80%;
+    --ring:         148 19% 44%;     /* sage */
+
+    --radius: 0.625rem;
+
+    /* Semantic */
+    --success:      148 40% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning:      38 90% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info:         210 80% 52%;
+    --info-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-accent:  linear-gradient(135deg, hsl(148 19% 44%), hsl(148 25% 55%));
+    --gradient-hero:    linear-gradient(135deg, hsl(30 15% 22%), hsl(30 12% 30%));
+    --gradient-surface: linear-gradient(180deg, hsl(42 27% 96%), hsl(36 30% 93%));
+
+    /* Shadows */
+    --shadow-sm:     0 1px 2px 0 hsl(30 15% 22% / 0.06);
+    --shadow-md:     0 4px 8px -1px hsl(30 15% 22% / 0.08), 0 2px 4px -2px hsl(30 15% 22% / 0.05);
+    --shadow-lg:     0 10px 25px -3px hsl(30 15% 22% / 0.10), 0 4px 10px -4px hsl(30 15% 22% / 0.05);
+    --shadow-accent: 0 4px 14px -3px hsl(148 19% 44% / 0.38);
+
+    /* Sidebar */
+    --sidebar-background:        35 36% 92%;
+    --sidebar-foreground:        30 15% 30%;
+    --sidebar-primary:           148 19% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent:            35 36% 86%;
+    --sidebar-accent-foreground: 30 15% 22%;
+    --sidebar-border:            35 30% 80%;
+    --sidebar-ring:              148 19% 44%;
+  }
+
+  .dark {
+    /* Dark surfaces — deep warm tones */
+    --background:   30 12% 12%;
+    --foreground:   42 20% 90%;
+
+    --card:         30 12% 15%;
+    --card-foreground: 42 20% 90%;
+
+    --popover:      30 12% 15%;
+    --popover-foreground: 42 20% 90%;
+
+    --primary:      148 22% 52%;     /* lighter sage in dark mode */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary:    30 12% 20%;
+    --secondary-foreground: 42 20% 85%;
+
+    --muted:        30 12% 18%;
+    --muted-foreground: 35 20% 58%;
+
+    --accent:       148 22% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive:  4 60% 40%;
+    --destructive-foreground: 42 20% 96%;
+
+    --border:       30 12% 22%;
+    --input:        30 12% 22%;
+    --ring:         148 22% 52%;
+
+    --sidebar-background:        30 12% 10%;
+    --sidebar-foreground:        42 20% 85%;
+    --sidebar-primary:           148 22% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent:            30 12% 16%;
+    --sidebar-accent-foreground: 42 20% 85%;
+    --sidebar-border:            30 12% 20%;
+    --sidebar-ring:              148 22% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-accent {
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-gradient-surface {
+    background-image: var(--gradient-surface);
+  }
+
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-lg border border-border/50;
+  }
+}
